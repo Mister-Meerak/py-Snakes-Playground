@@ -8,7 +8,7 @@ outOfStock = '/html/body/div[1]/div/div[3]/producthero-component/div/div/div[3]/
 addButton ='/html/body/div[1]/div/div[3]/producthero-component/div/div/div[3]/producthero-info/div/div[4]/button'
 sleepInSeconds = 10
 #enter the site
-siteDigital = ''
+siteDigital = 'https://direct.playstation.com/en-us/consoles/console/playstation5-console.3005816'
 
 def alertSound():
     duration=1000
@@ -45,7 +45,10 @@ def getInQueue():
 
     except Exception as ex:        
         alertSound()
-        print('something broke', ex)
+        print('something broke', ex)        
+        driverIncognito.close
+        driver = webdriver.Chrome("c:/_DaCode/lib/chromedriver.exe", chrome_options=driverOptions)
+        driver.get(siteDigital) 
     
 if __name__ == "__main__":
     driverOptions = webdriver.ChromeOptions()
